@@ -1,0 +1,42 @@
+/* Setup border box for grid view */
+
+* {
+  box-sizing: border-box;
+}
+          
+/***********************************
+        styles for button
+***********************************/
+
+button {
+  position: relative;
+  background-color: white;
+  border: 1px solid black;
+  margin-bottom: 5px;
+  height: 30px;
+  width: 100px;
+  cursor: pointer;
+  padding: 0px;
+  left: 50%;
+  margin-left: -50px;
+  
+}
+
+
+button:active {
+  background-color: black;
+  color: white;
+}
+
+/***********************************
+        styles for grid units
+***********************************/
+
+.grid-member {
+  float:left;
+  padding: 1px;
+}
+
+.hovered {
+  background-color: black;
+}
