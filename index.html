@@ -18,17 +18,22 @@
 			const button = document.getElementsByTagName("button")[0];
 			// Define height of container, otherwise the grid doesn't work
 			// DOM defines width of container, don't worry about that
-			container.style.height = (clientHeight - 40) + "px";
+			container.style.height = (clientHeight - 55) + "px";
 						
 			createGrid(16)
+			createListeners();
 			
-			let squares = document.querySelectorAll(".grid-member");
 			
-			squares.forEach((square) => {
-				square.addEventListener('mouseover', () => {
-					square.classList.add("hovered");
+			function createListeners() {
+				// Has to be run after createGrid for the whole thing to work
+				let squares = document.querySelectorAll(".grid-member");
+			
+				squares.forEach((square) => {
+					square.addEventListener('mouseover', () => {
+						square.classList.add("hovered");
+					});
 				});
-			});
+			}
 			
 			function createGrid(gridSize) {
 				//Get percentages of the grid for width and height
@@ -48,7 +53,22 @@
 			}
 			
 			function resetGrid() {
-				console.log("Button clicked");
+				// Ask for new grid size
+				let newGridSize = Number(prompt("Input the new number of cells for the grid"));
+				
+				if(typeof newGridSize !== "number"){
+					alert("That was not a number, using default size of 16 for grid");
+					newGridSize = 16;
+				}
+				
+				// Delete the previous Grid
+				let oldGrid = document.querySelectorAll(".grid-member");
+				oldGrid.forEach((square) => {
+					square.remove();
+				});
+				
+				createGrid(newGridSize);
+				createListeners();
 			}
 			
 		</script>
