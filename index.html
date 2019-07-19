@@ -15,16 +15,21 @@
 			const clientWidth = document.documentElement.clientWidth;
 			const clientHeight = document.documentElement.clientHeight;
 			// Define height of container, otherwise the grid doesn't work
+			// DOM defines width of container, don't worry about that
 			container.style.height = (clientHeight - 20) + "px";
 						
-			createGrid(16, clientWidth, clientHeight)
+			createGrid(16)
 			
-			function print(str) {
-				// console log helper 'cause I'm a lazy boi
-				console.log(str);
-			}
+			let squares = document.querySelectorAll(".grid-member");
 			
-			function createGrid(gridSize, scrnWidth, scrnHeight) {
+			squares.forEach((square) => {
+				square.addEventListener('mouseover', () => {
+					square.classList.add("hovered");
+					console.log(square);
+				});
+			});
+			
+			function createGrid(gridSize) {
 				//Get percentages of the grid for width and height
 				let rectHeightPercent = (1/gridSize) * 100;
 				let rectWidthPercent = (1/gridSize) * 100;
