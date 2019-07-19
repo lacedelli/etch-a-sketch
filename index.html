@@ -3,6 +3,7 @@
 <body>
 	<head>
 		<meta charset="utf-8">
+		<title>Etch-a-sketch</title>
 		<link rel="stylesheet" type="text/css" href="./styles/style.css">
 	</head>
 	<body>
@@ -13,13 +14,30 @@
 			const container = document.querySelector(".grid-container");
 			const clientWidth = document.documentElement.clientWidth;
 			const clientHeight = document.documentElement.clientHeight;
+			// Define height of container, otherwise the grid doesn't work
+			container.style.height = (clientHeight - 20) + "px";
+						
+			createGrid(16, clientWidth, clientHeight)
+			
+			function print(str) {
+				// console log helper 'cause I'm a lazy boi
+				console.log(str);
+			}
 			
 			function createGrid(gridSize, scrnWidth, scrnHeight) {
-				let rectHeight = scrnHeight / gridSize;
-				let rectWidth = scrnWidth / gridSize;
+				//Get percentages of the grid for width and height
+				let rectHeightPercent = (1/gridSize) * 100;
+				let rectWidthPercent = (1/gridSize) * 100;
 				
 				for(let i = 0; i < gridSize; i++) {
-					
+					for(let u = 0; u < gridSize; u++) {
+						let div = document.createElement("div");
+						div.setAttribute("class", "grid-member");
+						div.style.height = rectHeightPercent+"%";
+						div.style.width = rectWidthPercent+"%";
+						
+						container.appendChild(div);
+					}
 				}
 			}
 		</script>
