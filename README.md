@@ -12,5 +12,3 @@ I read through the steps before doing anything, and it doesn't really seem like 
 Also, I finally found out about the basics of .md markup, so, expect all my files to be at least a little more presentable.
 
 18/July/2019
-
-
